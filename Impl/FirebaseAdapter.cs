@@ -1,3 +1,5 @@
+#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
+
 using System;
 using Build1.PostMVC.Unity.App.Modules.Logging;
 using Firebase.Auth;
@@ -71,3 +73,5 @@ namespace Build1.PostMVC.Unity.Firebase.Impl
         }
     }
 }
+
+#endif

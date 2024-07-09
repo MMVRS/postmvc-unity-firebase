@@ -1,3 +1,5 @@
+#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
+
 using Build1.PostMVC.Core.MVCS.Commands;
 using Build1.PostMVC.Unity.Firebase.Impl;
 
@@ -24,3 +26,4 @@ namespace Build1.PostMVC.Unity.Firebase.Commands
         }
     }
 }
+#endif
