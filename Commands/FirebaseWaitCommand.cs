@@ -1,11 +1,9 @@
-#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
-
 using Build1.PostMVC.Core.MVCS.Commands;
 using Build1.PostMVC.Unity.Firebase.Impl;
 
 namespace Build1.PostMVC.Unity.Firebase.Commands
 {
-    public sealed class FirebaseInitializeCommand : Command
+    public sealed class FirebaseWaitCommand : Command
     {
         public override void Execute()
         {
@@ -13,13 +11,10 @@ namespace Build1.PostMVC.Unity.Firebase.Commands
                 return;
 
             Retain();
-
-            FirebaseAdapter.OnInitialized += FirebaseAdapterOnOnInitialized;
             
-            if (!FirebaseAdapter.Initializing)
-                FirebaseAdapter.Initialize();
+            FirebaseAdapter.OnInitialized += FirebaseAdapterOnOnInitialized;
         }
-
+        
         private void FirebaseAdapterOnOnInitialized()
         {
             FirebaseAdapter.OnInitialized -= FirebaseAdapterOnOnInitialized;
@@ -28,4 +23,3 @@ namespace Build1.PostMVC.Unity.Firebase.Commands
         }
     }
 }
-#endif
