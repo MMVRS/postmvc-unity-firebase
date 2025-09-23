@@ -1,4 +1,4 @@
-#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
+#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR || UNITY_STANDALONE_WIN
 
 using Build1.PostMVC.Core.MVCS.Commands;
 using Build1.PostMVC.Unity.Firebase.Impl;
