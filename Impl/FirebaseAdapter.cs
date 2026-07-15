@@ -3,6 +3,7 @@
 using System;
 using Firebase;
 using Firebase.Extensions;
+using UnityEngine;
 
 namespace Build1.PostMVC.Unity.Firebase.Impl
 {
@@ -12,6 +13,14 @@ namespace Build1.PostMVC.Unity.Firebase.Impl
         public static bool Initializing { get; private set; }
 
         public static event Action OnInitialized;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStaticState()
+        {
+            Initialized = false;
+            Initializing = false;
+            OnInitialized = null;
+        }
 
         public static void Initialize()
         {
